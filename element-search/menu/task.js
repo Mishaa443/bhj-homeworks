@@ -6,7 +6,7 @@ for (let link of links) {
 		if (parent.querySelector('.menu_sub').className === 'menu menu_sub') {
 			parent.querySelector('.menu_sub').className = 'menu menu_sub menu_active';
 		} else {
-			parent.querySelector('.menu_sub').className = 'menu menu_sub'
+			parent.querySelector('.menu__link').className = 'menu__item'
 		}
 
 		if (link.closest('.menu_main')) {

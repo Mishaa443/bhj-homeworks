@@ -1,5 +1,8 @@
+
 let currentSlide = 0;
+let arrayOfDots = Array.from(document.querySelectorAll('div.slider__dot'));
 let slideArrows = Array.from(document.querySelectorAll('div.slider__arrow'));
+let arrayOfSlides = Array.from(document.querySelectorAll('div.slider__item'));
 
 function setSlidesDotsInactive(slidesArray, dotsArray, index)  {
     slidesArray[index].classList.remove('slider__item_active');
@@ -16,6 +19,7 @@ function setNextSlide(prevPage=false, nextPage=false, lengthOfArrayOfSlides, cur
         setCurrentSlideAndDot(arrayOfSlides, arrayOfDots, nextSlide)
     };
 };
+
 for (let dot in arrayOfDots) {
     arrayOfDots[dot].onclick = function () {
         currentSlide = arrayOfSlides.findIndex(isSlide);
