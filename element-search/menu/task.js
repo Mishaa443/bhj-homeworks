@@ -1,16 +1,21 @@
-const links = Array.from(document.querySelectorAll('.menu__link'));
+let menuLink = document.querySelectorAll('a.menu__link');
+let k = 0;
+	for (let i = 0; i < menuLink.length; i++) {
 
-for (let link of links) {
-	link.onclick = function () {
-		const parent = link.parentElement;
-		if (parent.querySelector('.menu_sub').className === 'menu menu_sub') {
-			parent.querySelector('.menu_sub').className = 'menu menu_sub menu_active';
-		} else {
-			parent.querySelector('.menu__link').className = 'menu__item'
-		}
+    menuLink[i].onclick = function() {
 
-		if (link.closest('.menu_main')) {
-			return false
-		}
-	}
-}
+        let targetItem = menuLink[i].closest('li.menu__item').querySelector('ul.menu_sub');
+        if (targetItem !== null && k === 0) {
+            targetItem.className += ' menu_active';
+            k = 1;
+            return false;
+        };
+
+        if (targetItem !== null && k === 1) {
+            targetItem.className = targetItem.className.replace(' menu_active', '');
+            k = 0;
+            return false;
+        };
+
+    };
+};
